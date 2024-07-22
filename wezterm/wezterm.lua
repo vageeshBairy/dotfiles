@@ -1,10 +1,10 @@
 local wezterm = require("wezterm")
 local home = os.getenv("HOME")
 local padding = {
-	left = "0.1cell",
-	right = "0.1cell",
-	top = "0.1cell",
-	bottom = "0.1cell",
+	left = "0.0cell",
+	right = "0.0cell",
+	top = "0.0cell",
+	bottom = "0.0cell",
 }
 
 -- Reload the configuration every ten minutes
@@ -18,7 +18,7 @@ return {
 	enable_wayland = false,
 	enable_tab_bar = false,
 	font_size = 10.0,
-	font = wezterm.font("Maple Mono"),
+	font = wezterm.font("IosevkaLyteTerm"),
 	window_padding = padding,
 	line_height = 1,
 	window_background_image_hsb = {
