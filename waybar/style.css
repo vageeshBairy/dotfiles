@@ -1,0 +1,163 @@
+@import url("/home/bairy/.cache/wal/colors-waybar.css");
+
+* {
+  font-family:
+    Maple Mono,
+    Symbols Nerd Font;
+  font-weight: bold;
+  font-size: 15px;
+  min-height: 0px;
+  padding: 0;
+  margin: 0;
+}
+
+window#waybar {
+  background-color: @background;
+  color: @foreground;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  min-height: 0px;
+  opacity: 0.9;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+window#waybar.termite {
+  background-color: @color0;
+  min-height: 0px;
+}
+
+window#waybar.chromium {
+  background-color: @color2;
+  border: none;
+  min-height: 0px;
+}
+
+button {
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 -3px transparent;
+  /* Avoid rounded borders under each button name */
+  border: none;
+  border-radius: 0;
+  min-height: 0px;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+
+#workspaces button:hover {
+  color: @color8;
+  box-shadow: inherit;
+  text-shadow: inherit;
+  background: @background;
+  border: @background;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  color: @color3;
+  margin: 2px 0 2px 3px;
+  transition: color 200ms ease-in-out;
+}
+
+#workspaces button.selected {
+  color: @color4;
+}
+
+#workspaces button.active {
+  color: @color5;
+}
+
+#workspaces button.urgent {
+  color: @color6;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-pacman,
+#custom-power,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#mpd {
+  padding: 0 5px;
+  color: @foreground;
+  border-radius: 15px;
+  margin: 0 0;
+}
+
+#window {
+  margin: 0 0px;
+  font-style: italic;
+}
+
+/* If workspaces is the leftmost module, reduce left margin */
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 1px;
+}
+
+#clock {
+  color: @foreground;
+  font-family: Digital Display;
+}
+
+#custom-pacman {
+  color: @color6;
+}
+
+#pulseaudio {
+  color: @color7;
+}
+
+#pulseaudio.muted {
+  color: @color8;
+}
+
+#network {
+  color: @color9;
+}
+
+#network.disconnected {
+  color: @color10;
+}
+
+#battery {
+  color: @color11;
+}
+
+#battery.warning:not(.charging) {
+  color: @color12;
+}
+
+#custom-power {
+  color: @color13;
+  margin-right: 5px;
+}
+
+#keyboard-state > label {
+  padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad.empty {
+  background-color: transparent;
+}
+
+/*vim : ft=scss*/

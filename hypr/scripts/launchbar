@@ -1,0 +1,6 @@
+if hash waybar >/dev/null 2>&1; then
+  pkill waybar
+  waybar &
+else
+  waybar &
+fi

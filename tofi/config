@@ -1,0 +1,21 @@
+prompt-text = "> "
+
+text-color = #cdd6f4
+prompt-color = #585b70
+selection-background = #cba6f7
+selection-background-padding = 10, 16
+selection-background-corner-radius = 10
+selection-color = #1e1e2e
+background-color = #181825dd
+
+width = 30%
+height = 50%
+padding-left = 3%
+padding-top = 3%
+border-width = 1
+outline-width = 1
+result-spacing = 13
+num-results = 8
+font = Maple Mono
+font-variations = "wght 600"
+font-size = 12

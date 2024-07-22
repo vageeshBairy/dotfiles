@@ -1,0 +1,55 @@
+VIM="nvim"
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
+export TERMINAL="foot"
+export BROWSER="firefox"
+export EDITOR=$VIM
+export VISUAL=$VIM
+export GIT_EDITOR=$VIM
+export VIDEO="mpv"
+export IMAGE="sxiv"
+export COLORTERM="truecolor"
+export OPENER="xdg-open"
+export WM="Hyprland"
+export LAUNCHER="tofi"
+
+export FZF_DEFAULT_COMMAND='rg --hidden --ignore .git -g ""'
+export CDPATH="$HOME:$HOME/.config/:$HOME/.local/:$HOME/.local/share/"
+export CSCOPE_EDITOR=$VIM
+
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+
+#export JAVA_HOME="/usr/lib/jvm/java-17-openjdk/"
+export LOCAL_BIN="${HOME}/.local/bin"
+export NPM_PACKAGES="${LOCAL_BIN}/npm-packages"
+export LOCAL_BIN_SCRIPTS="${LOCAL_BIN}/scripts"
+
+#Android Studio
+export ANDROID_STUDIO="/opt/android-studio/bin/studio.sh"
+export ANDROID_HOME="${HOME}/Android/Sdk"
+
+#Cargo PATH
+export CARGO="${HOME}/.cargo/bin/cargo"
+export RUSTUP_HOME="${HOME}/.rustup"
+export RUSTC="${HOME}/.cargo/bin/rustc"
+
+#Flutter PATH
+export FLUTTER_ROOT="${HOME}/Android/flutter"
+export DART_SDK="${HOME}/Android/flutter/bin/cache/dart-sdk"
+export DART_LANGUAGE_SERVER="${HOME}/.pub-cache"
+
+#Chrome PATH
+export CHROME_EXECUTABLE="/opt/google/chrome/google-chrome"
+
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
+export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
+export PATH="$LOCAL_BIN:$NPM_PACKAGES/bin:$LOCAL_BIN_SCRIPTS:$ANDROID_STUDIO:$ANDROID_HOME:$CARGO:$RUSTUP_HOME:$RUSTC:$CHROME_EXECUTABLE:$PATH"
