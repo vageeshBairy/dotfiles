@@ -63,7 +63,7 @@ cmd open ${{
     case "$(file --mime-type "$f" -b)" in    
         text/*) nvim $fx ;;    
         audio/*) mpv --audio-display=no $f ;;    
-        video/*) mpv $fx ;; 
+        video/*) mpv $fx &;; 
         *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;    
     esac    
 }}
