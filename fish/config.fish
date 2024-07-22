@@ -53,7 +53,7 @@ if test -f $LOCAL_CONFIG
 end
 if test -e $HOME/.cache/wal/colors.fish
     source $HOME/.cache/wal/colors.fish
-    cat $HOME/.cache/wal/sequences &
+    setsid cat $HOME/.cache/wal/sequences
 end
 
 fish_add_path (find "$HOME/.sdkman/candidates/gradle/current/bin" -maxdepth 0)
