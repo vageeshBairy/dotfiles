@@ -8,7 +8,7 @@ return {
   event = 'BufReadPre',
   config = function()
     local neogit = require 'neogit'
-
+    neogit.setup()
     vim.keymap.set('n', '<leader>gs', neogit.open, { silent = true, noremap = true })
 
     vim.keymap.set('n', '<leader>gc', ':Neogit commit<CR>', { silent = true, noremap = true })
