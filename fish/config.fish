@@ -14,12 +14,12 @@ alias h helix
 command -qv nvim && alias vim nvim
 
 set -gx EDITOR nvim
-set -gx TERMINAL st
+set -gx TERMINAL kitty
 set -gx BROWSER firefox
 set -gx VISUAL nvim
 set -gx GIT_EDITOR nvim
 set -gx VIDEO mpv
-set -gx IMAGE sxiv
+set -gx IMAGE imv
 set -gx COLORTERM truecolor
 set -gx OPENER xdg-open
 set -gx WM Hyprland

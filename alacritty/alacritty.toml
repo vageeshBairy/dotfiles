@@ -14,19 +14,19 @@ TERM = "xterm-256color"
 size = 10
 
 [font.bold]
-family = "IosevkaLyteTerm"
+family = "JetBrainsMonoNL Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "IosevkaLyteTerm"
+family = "JetBrainsMonoNL Nerd Font"
 style = "Bold Italic"
 
 [font.italic]
-family = "IosevkaLyteTerm"
+family = "JetBrainsMonoNL Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "IosevkaLyteTerm"
+family = "JetBrainsMonoNL Nerd Font"
 style = "Regular"
 
 [[keyboard.bindings]]

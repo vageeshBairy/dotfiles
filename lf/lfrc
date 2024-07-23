@@ -1,4 +1,4 @@
-set cleaner ~/.config/lf/ktty_cleaner
+# set cleaner ~/.config/lf/ktty_cleaner
 set previewer ~/.config/lf/previewer
 
 # Basic Settings

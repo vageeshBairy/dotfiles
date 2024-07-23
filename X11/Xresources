@@ -1,0 +1,41 @@
+! XTERM NAME
+! !------------------------------------------------
+
+XTerm.termName: xterm-256color
+XTerm.renderFont: true
+! XTERM Window size
+
+XTerm.vt100.geometry: 130x50 
+
+! XTERM COLORS & FONTS
+! !-----------------------------------------------
+XTerm.vt100.faceName: JetBrainsMonoNL Nerd Font
+XTerm.vt100.faceSize: 10,5
+! XTerm.vt100.font: 7x13
+XTerm.utf8: 1
+XTerm.vt100.locale: true
+
+! XTERM COPY/PASTE
+! !----------------------------------------------
+
+XTerm.selectToClipboard: true
+XTerm.vt100.TiteInhibit: True
+XTerm.highlightSelection: true
+XTerm.trimSelection: true
+
+! XTERM SCROLLBAR, CURSOR STYLE, BORDER, KEYBINDINGS
+! !------------------------------------------------
+
+XTerm.pointerColor: white
+XTerm.pointerColorBackground: black
+XTerm.cursorColor: yellow
+XTerm.cursorBlink: true
+XTerm.vt100.scrollBar: false
+XTerm.scrollTtyOutput: false
+XTerm.saveLines: 30000
+XTerm.vt100.translations: #override \n\
+Ctrl <Key>-: smaller-vt-font() \n\
+Ctrl <Key>+: larger-vt-font() \n\
+Ctrl <Key>0: set-vt-font(d) \n\
+Ctrl Alt <Key>c: copy-selection(CLIPBOARD) \n\
+Ctrl Alt <Key>v: insert-selection(CLIPBOARD)
