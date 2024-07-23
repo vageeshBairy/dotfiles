@@ -1,3 +1,4 @@
+local mappings = require 'telescope.mappings'
 ---@diagnostic disable: undefined-global
 return {
   'echasnovski/mini.nvim',
@@ -20,7 +21,7 @@ return {
 
     require('mini.bufremove').setup()
 
-    require('mini.comment').setup()
+    require('mini.comment').setup {}
 
     require('mini.clue').setup {
       triggers = {

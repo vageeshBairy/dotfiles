@@ -12,7 +12,7 @@ map('n', '-', '<C-x>', opts)
 map('n', '<C-a>', 'gg<S-v>G', opts)
 
 -- delete a word backwards
-map('n', 'dw', 'vb_d')
+map('n', 'db', 'vbd')
 
 opts.desc = 'clear search highlights'
 map('n', '<leader>nh', ':nohl<CR>', opts)
@@ -65,8 +65,10 @@ map('n', '<C-f>', '<cmd>!tmux neww tmux_sessionizer<CR>', opts)
 
 opts.desc = 'format code'
 map('n', '<leader>f', vim.lsp.buf.format, opts)
+
 opts.desc = 'search and replace'
 map('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], opts)
+
 opts.desc = 'make shell script executable'
 map('n', '<leader>x', '<cmd>!chmod +x %<CR>', opts)
 
@@ -75,18 +77,12 @@ map('v', '<', '<gv', opts)
 map('v', '>', '>gv', opts)
 
 --commenting/uncommenting
-nmap('n', '<C-/>', 'gcc', opts)
-nmap('v', '<C-/>', 'gcc', opts)
+nmap('n', '<C-/>', 'gcc', { noremap = false, silent = false })
+nmap('v', '<C-/>', 'gcc', { noremap = false, silent = false })
 
---diagnostic
-opts.desc = 'Go to previous [D]iagnostic message'
-map('n', '[d', vim.diagnostic.goto_prev, opts)
-opts.desc = 'Go to next [D]iagnostic message'
-map('n', ']d', vim.diagnostic.goto_next, opts)
-opts.desc = 'Show diagnostic [E]rror messages'
-map('n', '<leader>e', vim.diagnostic.open_float, opts)
-opts.desc = 'Open diagnostic [Q]uickfix list'
-map('n', '<leader>q', vim.diagnostic.setloclist, opts)
+-- same commenting keybindings for tmux session
+nmap('n', '<C-_>', 'gcc', { noremap = false, silent = false })
+nmap('v', '<C-_>', 'gcc', { noremap = false, silent = false })
 
 -- misc
 nmap('n', 'QQ', ':q!<enter>', opts)
