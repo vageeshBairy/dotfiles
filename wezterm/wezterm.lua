@@ -1,5 +1,4 @@
 local wezterm = require("wezterm")
-local home = os.getenv("HOME")
 local padding = {
 	left = "0.0cell",
 	right = "0.0cell",
@@ -11,10 +10,7 @@ local padding = {
 wezterm.time.call_after(600, function()
 	wezterm.reload_configuration()
 end)
-wezterm.add_to_config_reload_watch_list(home .. "/.cache/wal/colors-alacritty.toml")
 return {
-	color_scheme_dirs = { home .. "/.cache/wal" },
-	color_scheme = "color-alacritty",
 	enable_wayland = false,
 	enable_tab_bar = false,
 	font_size = 10.0,
@@ -22,7 +18,7 @@ return {
 	window_padding = padding,
 	line_height = 1,
 	window_background_image_hsb = {
-		brightness = 0.01,
+		brightness = 0.05,
 		hue = 1.0,
 		saturation = 0.5,
 	},
