@@ -14,7 +14,7 @@ alias h helix
 command -qv nvim && alias vim nvim
 
 set -gx EDITOR nvim
-set -gx TERMINAL footclient
+set -gx TERMINAL st
 set -gx BROWSER firefox
 set -gx VISUAL nvim
 set -gx GIT_EDITOR nvim
