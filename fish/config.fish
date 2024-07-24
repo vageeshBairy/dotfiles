@@ -11,6 +11,7 @@ alias g git
 alias cl clear
 alias v nvim
 alias h helix
+alias y yazi
 command -qv nvim && alias vim nvim
 
 set -gx EDITOR nvim

@@ -4,7 +4,7 @@
 
 [manager]
 ratio = [1, 3, 4]
-sort_by = "alphabetical"
+sort_by = "natural"
 sort_sensitive = false
 sort_reverse = false
 sort_dir_first = true
@@ -28,16 +28,12 @@ ueberzug_offset = [0, 0, 0, 0]
 edit = [
   { run = '${EDITOR:=vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
 ]
-open = [
-  { run = 'xdg-open "$@"', desc = "Open", for = "linux" },
-]
+open = [{ run = 'xdg-open "$@"', desc = "Open", for = "linux" }]
 reveal = [
   { run = 'xdg-open "$(dirname "$0")"', desc = "Reveal", for = "linux" },
   { run = '''exiftool "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show EXIF", for = "unix" },
 ]
-extract = [
-  { run = 'unar "$1"', desc = "Extract here", for = "unix" },
-]
+extract = [{ run = 'unar "$1"', desc = "Extract here", for = "unix" }]
 play = [
   { run = 'mpv "$@"', orphan = true, for = "unix" },
   { run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
