@@ -30,7 +30,7 @@ prepend_keymap = [
 			shell 'printf "Mode Bits: "; read ans; chmod $ans "$@"' --block --confirm
 	""", desc = "chmod" },
 	{ on = [
-		".",
+		"s",
 	], run = """
 			shell 'nohup setwallpaper "$@" </dev/null >/dev/null 2>&1 &' --block --confirm""", orphan = true, desc = "setwallpaper" },
 ]
