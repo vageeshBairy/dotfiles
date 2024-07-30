@@ -97,4 +97,5 @@ eval "$(fzf --zsh)"
 #zoxide integration
 eval "$(zoxide init zsh)"
 
-eval "$(oh-my-posh init zsh --config $home/.config/oh-my-posh/oh-my-posh.toml)"
+eval "$(starship init zsh)"
+# eval "$(oh-my-posh init zsh --config $home/.config/oh-my-posh/oh-my-posh.toml)"

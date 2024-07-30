@@ -1,7 +1,7 @@
 VIM="nvim"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
-export TERMINAL="foot"
+export TERMINAL="kitty"
 export BROWSER="firefox"
 export EDITOR=$VIM
 export VISUAL=$VIM

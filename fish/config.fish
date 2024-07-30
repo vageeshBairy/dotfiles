@@ -71,5 +71,10 @@ zoxide init fish | source
 
 bind \cf tmux_sessionizer
 
+function vi_mode
+    set fish_bind_mode default
+    commandline -f repaint-mode
+end
+
 starship init fish | source
 # oh-my-posh init fish --config $HOME/.config/oh-my-posh/oh-my-posh.toml | source
