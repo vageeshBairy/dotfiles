@@ -35,7 +35,7 @@ bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
 # Where should I put you?
-bindkey -s '^f' "tmux-sessionizer\n"
+bindkey -s '^f' "tmux_sessionizer\n"
 
 # History
 HISTSIZE=5000

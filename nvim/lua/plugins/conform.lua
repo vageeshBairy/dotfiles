@@ -39,6 +39,7 @@ return {
       go = { 'gofmt', 'goimports-reviser', 'golines' },
       c = { 'clang-format' },
       java = { 'google-java-format' },
+      kotlin = { 'ktlint' },
     },
   },
 }

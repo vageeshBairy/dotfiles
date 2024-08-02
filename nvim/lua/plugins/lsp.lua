@@ -121,21 +121,62 @@ return {
 
     local servers = {
       -- bash
-      bashls = {},
+      bashls = {
+        cmd = { 'bash-language-server', 'start' },
+        filetypes = { 'sh' },
+        settings = {
+          bashIde = {
+            globPattern = '*@(.sh|.inc|.bash|.command)',
+          },
+        },
+      },
 
       -- c/c++
       clangd = {
         on_attach = function(client, _)
           client.server_capabilities.signatureHelpProvider = false
         end,
+        cmd = { 'clangd' },
+        filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' },
+        root_dir = lspconfig.util.root_pattern('.clangd', '.clang-tidy', '.clang-format', 'compile_commands.json', 'compile_flags.txt', 'configure.ac', '.git'),
       },
 
       -- css/scss
-      cssls = {},
+      cssls = {
+        cmd = { 'vscode-css-language-server', '--stdio' },
+        filetypes = { 'css', 'scss', 'less' },
+        settings = {
+          css = {
+            validate = true,
+          },
+          less = {
+            validate = true,
+          },
+          scss = {
+            validate = true,
+          },
+        },
+      },
 
       -- html/js/ts/css
       emmet_ls = {
-        filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'svelte' },
+        cmd = { 'emmet-ls', '--stdio' },
+        filetypes = {
+          'astro',
+          'css',
+          'eruby',
+          'html',
+          'htmldjango',
+          'javascriptreact',
+          'less',
+          'pug',
+          'sass',
+          'scss',
+          'svelte',
+          'typescriptreact',
+          'vue',
+          'htmlangular',
+        },
       },
 
       -- go
@@ -161,11 +202,31 @@ return {
 
       -- html
       html = {
-        filetypes = { 'html' },
+        cmd = { 'vscode-html-language-server', '--stdio' },
+        filetypes = { 'html', 'templ' },
+        init_options = {
+          configurationSection = { 'html', 'css', 'javascript' },
+          embeddedLanguages = {
+            css = true,
+            javascript = true,
+          },
+          provideFormatter = true,
+        },
+      },
+
+      -- htmx
+      htmx = {
+        cmd = { 'htmx-lsp' },
+        filetypes = { 'html', 'templ' },
       },
 
       -- hprlang
-      hyprls = {},
+      hyprls = {
+        cmd = { 'hyprls', '--stdio' },
+        filetypes = { 'hyprlang', '*.hl', 'hypr*.conf', '.config/hypr/*.conf' },
+        root_dir = lspconfig.util.find_git_ancestor,
+        single_file_support = true,
+      },
 
       -- java
       jdtls = {
@@ -176,10 +237,19 @@ return {
       },
 
       -- json
-      jsonls = {},
+      jsonls = {
+        cmd = { 'vscode-json-language-server', '--stdio' },
+        filetypes = { 'json', 'jsonc' },
+        init_options = {
+          provideFormatter = true,
+        },
+      },
 
       -- kotlin
-      kotlin_language_server = {},
+      kotlin_language_server = {
+        cmd = { 'kotlin-language-server' },
+        filetypes = { 'kotlin' },
+      },
 
       -- lua
       lua_ls = {
@@ -206,11 +276,47 @@ return {
         },
       },
 
+      -- perl
+      perlls = {
+        cmd = { 'perl', '-MPerl::LanguageServer', '-e', 'Perl::LanguageServer::run', '--', '--port 13603', '--nostdio 0' },
+        filetypes = { 'perl' },
+        settings = {
+          perl = {
+            fileFilter = { '.pm', '.pl' },
+            ignoreDirs = '.git',
+            perlCmd = 'perl',
+            perlInc = ' ',
+          },
+        },
+      },
+
+      --postgres
+      postgres_lsp = {
+        cmd = { 'postgres_lsp' },
+        filetypes = { 'sql' },
+      },
+
       -- prisma
-      prismals = {},
+      prismals = {
+        cmd = { 'prisma-language-server', '--stdio' },
+        filetypes = { 'prisma' },
+        root_dir = lspconfig.util.root_pattern('.git', 'package.json'),
+      },
 
       --python
-      pyright = {},
+      pyright = {
+        cmd = { 'pyright-langserver', '--stdio' },
+        filetypes = { 'python' },
+        settings = {
+          python = {
+            analysis = {
+              autoSearchPaths = true,
+              diagnosticMode = 'openFilesOnly',
+              useLibraryCodeForTypes = true,
+            },
+          },
+        },
+      },
 
       -- rust
       rust_analyzer = {
@@ -225,7 +331,10 @@ return {
       },
 
       -- sql
-      sqls = {},
+      sqls = {
+        cmd = { 'sqls' },
+        filetypes = { 'sql', 'mysql' },
+      },
 
       -- svelte
       svelte = {
@@ -243,24 +352,130 @@ return {
       },
 
       -- tailwind css
-      tailwindcss = {},
+      tailwindcss = {
+        cmd = { 'tailwindcss-language-server', '--stdio' },
+        filetypes = {
+          'aspnetcorerazor',
+          'astro',
+          'astro-markdown',
+          'blade',
+          'clojure',
+          'django-html',
+          'htmldjango',
+          'edge',
+          'eelixir',
+          'elixir',
+          'ejs',
+          'erb',
+          'eruby',
+          'gohtml',
+          'gohtmltmpl',
+          'haml',
+          'handlebars',
+          'hbs',
+          'html',
+          'htmlangular',
+          'html-eex',
+          'heex',
+          'jade',
+          'leaf',
+          'liquid',
+          'markdown',
+          'mdx',
+          'mustache',
+          'njk',
+          'nunjucks',
+          'php',
+          'razor',
+          'slim',
+          'twig',
+          'css',
+          'less',
+          'postcss',
+          'sass',
+          'scss',
+          'stylus',
+          'sugarss',
+          'javascript',
+          'javascriptreact',
+          'reason',
+          'rescript',
+          'typescript',
+          'typescriptreact',
+          'vue',
+          'svelte',
+          'templ',
+        },
+        root_dir = lspconfig.util.root_pattern(
+          'tailwind.config.js',
+          'tailwind.config.cjs',
+          'tailwind.config.mjs',
+          'tailwind.config.ts',
+          'postcss.config.js',
+          'postcss.config.cjs',
+          'postcss.config.mjs',
+          'postcss.config.ts',
+          'package.json',
+          'node_modules',
+          '.git'
+        ),
+        settings = {
+          tailwindCSS = {
+            classAttributes = { 'class', 'className', 'class:list', 'classList', 'ngClass' },
+            includeLanguages = {
+              eelixir = 'html-eex',
+              eruby = 'erb',
+              htmlangular = 'html',
+              templ = 'html',
+            },
+            lint = {
+              cssConflict = 'warning',
+              invalidApply = 'error',
+              invalidConfigPath = 'error',
+              invalidScreen = 'error',
+              invalidTailwindDirective = 'error',
+              invalidVariant = 'error',
+              recommendedVariantOrder = 'warning',
+            },
+            validate = true,
+          },
+        },
+      },
 
       -- toml
-      taplo = {},
+      taplo = {
+        cmd = { 'taplo', 'lsp', 'stdio' },
+        filetypes = { 'toml' },
+        root_dir = lspconfig.util.root_pattern('*.toml', '.git'),
+      },
 
       --ts/tsx/js/jsx
       tsserver = {
-        filetypes = { 'typescript', 'javascript', 'typescriptreact', 'javascriptreact' },
+        cmd = { 'typescript-language-server', '--stdio' },
+        filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' },
+        init_options = {
+          hostInfo = 'neovim',
+        },
+        root_dir = lspconfig.util.root_pattern('tsconfig.json', 'jsconfig.json', 'package.json', '.git'),
       },
 
       -- vim
-      vimls = {},
+      vimls = {
+        cmd = { 'vim-language-server', '--stdio' },
+        filetypes = { 'vim' },
+      },
 
       -- vue
-      vuels = {},
+      vuels = {
+        cmd = { 'vls' },
+        filetypes = { 'vue' },
+      },
 
       -- yaml
-      yamlls = {},
+      yamlls = {
+        cmd = { 'yaml-language-server', '--stdio' },
+        filetypes = { 'yaml', 'yaml.docker-compose', 'yaml.gitlab' },
+      },
     }
     require('mason').setup {
       ui = {
@@ -299,7 +514,6 @@ return {
       'clang-format', -- c. c++ formatter
       'cpplint', -- c, c++ linter
       'google-java-format', -- java formatter
-      'ktlint', -- kotlin lint
       'ktfmt', -- kotlin formatter
       'codespell', -- spell check
       'sqlfmt', --sql formatter

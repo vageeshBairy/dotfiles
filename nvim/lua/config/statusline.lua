@@ -28,7 +28,7 @@ end
 
 local function mode()
   local current_mode = vim.api.nvim_get_mode().mode
-  return string.format('   %s ', modes[current_mode]):upper()
+  return string.format('  %s ', modes[current_mode]):upper()
 end
 
 local function filename()
@@ -36,7 +36,7 @@ local function filename()
   if fname == '' then
     return '' .. '%#Normal#'
   end
-  return '   ' .. fname .. ' '
+  return '  ' .. fname .. ' '
 end
 
 local function git()
@@ -73,16 +73,16 @@ local function lsp()
   local info = ''
 
   if count['errors'] ~= 0 then
-    errors = '%#LspDiagnosticsSignError#   ' .. count['errors']
+    errors = '%#LspDiagnosticsSignError#  ' .. count['errors']
   end
   if count['warnings'] ~= 0 then
-    warnings = '%#LspDiagnosticsSignWarning#   ' .. count['warnings']
+    warnings = '%#LspDiagnosticsSignWarning#  ' .. count['warnings']
   end
   if count['hints'] ~= 0 then
-    hints = '%#LspDiagnosticsSignHint#  ' .. count['hints']
+    hints = '%#LspDiagnosticsSignHint# ' .. count['hints']
   end
   if count['info'] ~= 0 then
-    info = '%#LspDiagnosticsSignInformation# 󰋼 ' .. count['info']
+    info = '%#LspDiagnosticsSignInformation# 󰋼' .. count['info']
   end
 
   return errors .. warnings .. hints .. info .. ' '
@@ -101,7 +101,7 @@ local function clients_lsp()
   for _, client in pairs(clients) do
     table.insert(c, client.name)
   end
-  return '   ' .. c[1] .. ' '
+  return '  ' .. c[1] .. ' '
 end
 
 local function filetype()
@@ -109,14 +109,14 @@ local function filetype()
   if ft == nil then
     return '' .. '%#Normal#'
   end
-  return string.format('   %s ', ft)
+  return string.format('  %s ', ft)
 end
 
 local function lineinfo()
   if vim.bo.filetype == 'alpha' then
     return ' ' .. '%#Normal#'
   end
-  return ' 󰉸  %l:%c '
+  return ' 󰉸 %l:%c '
 end
 
 Statusline = {}

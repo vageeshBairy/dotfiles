@@ -9,6 +9,7 @@ return {
         markdown = { 'markdownlint' },
         javascript = { 'eslint_d' },
         json = { 'jsonlint' },
+        kotlin = { 'ktlint' },
         typescript = { 'eslint_d' },
         javascriptreact = { 'eslint_d' },
         typescriptreact = { 'eslint_d' },
