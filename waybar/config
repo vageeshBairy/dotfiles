@@ -1,6 +1,6 @@
 {
     "layer": "top",
-    "height": 20,
+    "height": 24,
     "spacing": 5,
     // Choose the order of the modules
     "modules-left": [
@@ -30,33 +30,30 @@
         "on-click": "activate",
         "format": "{icon}",
         "format-icons": {
-          "1": " ",
-          "2": " ",
-          "3": " ",
-          "4": " ",
-          "5": " ",
-          "6": " ",
-          "7": " ",
-          "8": " ",
-          "9": " ",
-          "10": " ",
-          "urgent": " ",
-          "active": " ",
-          "default": " "
+          "1": "󰎤 ",
+          "2": "󰎧 ",
+          "3": "󰎪 ",
+          "4": "󰎭 ",
+          "5": "󰎱 ",
+          "6": "󰎳 ",
+          "7": "󰎶 ",
+          "8": "󰎹 ",
+          "9": "󰎼 ",
+          "10": "󰽽 ",
         },
         "persistent-workspaces": {
-          "*": 10, // 10 on every monitor
+          "*": 5, // 10 on every monitor
         }
     },
     "tray": {
-        "icon-size": 15,
+        "icon-size": 17,
         "spacing": 10
     },
     "backlight": {
        "device": "intel_backlight",
        "format": "{icon}",
        "format-icons": ["󰃞", "󰃝", "󰃟", "󰃠"],
-       "tooltip-format": "screen brightness {percent}%"
+       "tooltip-format": "Screen Brightness {percent}%"
     },
 		"custom/pacman": {
 			"interval": 3600,
@@ -78,7 +75,7 @@
         "format-icons": [ "󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹" ],
         "format-charging": "󰂄",
         "format-warning": "󰂃",
-				"tooltip-format": "{capacity}% capacity"
+				"tooltip-format": "{capacity}% Capacity"
     },
     "network": {
         "format-wifi": "󰤨",
@@ -93,10 +90,11 @@
 				"format-icons": {
 					"default": ["", "", ""]
 				},
-				"tooltip-format": "{volume}% volume"
+				"tooltip-format": "{volume}% Volume"
 		},
     "custom/power": {
         "format": "󰐥",
-        "on-click": "sleep 0.15 && powermenu"
+        "on-click": "sleep 0.15 && powermenu",
+				"tooltip-format": "Power Menu",
     }
 }

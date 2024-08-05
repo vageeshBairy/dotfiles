@@ -2,7 +2,7 @@ vim.opt.cursorline = true
 vim.opt.termguicolors = true
 vim.opt.winblend = 0
 vim.opt.wildoptions = 'pum'
-vim.opt.pumblend = 500
+vim.opt.pumblend = 0
 -- vim.opt.background = 'dark'
 vim.api.nvim_set_hl(0, 'Normal', { bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'NvimTreeNormal', { bg = 'NONE', ctermbg = 'NONE' })

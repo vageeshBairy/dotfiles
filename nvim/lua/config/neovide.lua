@@ -1,5 +1,5 @@
 if vim.g.neovide then
-  vim.o.guifont = 'IosevkaLyteTerm:h10'
+  vim.o.guifont = 'JetBrainsMonoNL Nerd Font Propo:h10'
 
   vim.g.neovide_padding_top = 0 -- Set to 40 if the tabline is hidden
   vim.g.neovide_padding_bottom = 0
