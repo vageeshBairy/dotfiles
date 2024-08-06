@@ -1,6 +1,6 @@
 {
     "layer": "top",
-    "height": 24,
+    "height": 20,
     "spacing": 5,
     // Choose the order of the modules
     "modules-left": [
@@ -16,7 +16,7 @@
         "pulseaudio",
         "network",
         "battery",
-				"clock",
+        "clock",
         "custom/power"
 		],
 		"hyprland/window": {
@@ -30,23 +30,23 @@
         "on-click": "activate",
         "format": "{icon}",
         "format-icons": {
-          "1": "󰎤 ",
-          "2": "󰎧 ",
-          "3": "󰎪 ",
-          "4": "󰎭 ",
-          "5": "󰎱 ",
-          "6": "󰎳 ",
-          "7": "󰎶 ",
-          "8": "󰎹 ",
-          "9": "󰎼 ",
-          "10": "󰽽 ",
+          "1": "󰖟",
+          "2": "",
+          "3": "󰈎",
+          "4": "󰎅",
+          "5": "󰃽",
+          "6": "",
+          "7": "",
+          "8": "",
+          "9": "󰨞",
+          "10": "",
         },
         "persistent-workspaces": {
           "*": 5, // 10 on every monitor
         }
     },
     "tray": {
-        "icon-size": 17,
+        "icon-size": 15,
         "spacing": 10
     },
     "backlight": {
