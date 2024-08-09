@@ -1,42 +1,52 @@
 [[language]]
-name = "go"
+name = "bash"
+shebangs = ["sh"]
+formatter = { command = "shfmt" }
 auto-format = true
-indent = { tab-width = 4, unit = "    " }
 
 [[language]]
-name = "zig"
+name = "lua"
+formatter = { command = "stylua", args = ["-"] }
 auto-format = true
-indent = { tab-width = 4, unit = "    " }
 
 [[language]]
-name = "rust"
+name = "markdown"
+formatter = { command = 'prettier', args = ["--parser", "markdown"] }
 auto-format = true
-indent = { tab-width = 4, unit = "    " }
 
 [[language]]
-name = "c"
+name = "html"
+formatter = { command = 'prettier', args = ["--parser", "html"] }
 auto-format = true
-indent = { tab-width = 4, unit = "    " }
 
 [[language]]
-name = "cpp"
+name = "json"
+file-types = ["json", "jsonc"]
+formatter = { command = 'prettier', args = ["--parser", "json"] }
 auto-format = true
-indent = { tab-width = 4, unit = "    " }
 
 [[language]]
-name = "hyprlang"
-auto-format = true
-indent = { tab-width = 4, unit = "    " }
-
-[language-server.rust-analyzer]
-command = "rust-analyzer"
+name = "css"
+formatter = { command = 'prettier', args = ["--parser", "css"] }
 auto-format = true
 
-[language-server.rust-analyzer.config]
-inlayHints.bindingModeHints.enable = false
-inlayHints.closingBraceHints.minLines = 10
-inlayHints.closureReturnTypeHints.enable = "with_block"
-inlayHints.discriminantHints.enable = "fieldless"
-inlayHints.lifetimeElisionHints.enable = "skip_trivial"
-inlayHints.typeHints.hideClosureInitialization = false
+[[language]]
+name = "javascript"
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true
 
+[[language]]
+name = "typescript"
+language-servers = ["vscode-eslint-language-server"]
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true
+
+[[language]]
+name = "tsx"
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true
+
+[[language]]
+name = "yaml"
+formatter = { command = 'prettier', args = ["--parser", "yaml"] }
+auto-format = true

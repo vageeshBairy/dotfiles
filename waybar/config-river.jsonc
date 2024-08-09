@@ -1,0 +1,91 @@
+{
+  "name": "bar2",
+  "height": 20,
+  "spacing": 5,
+  "modules-left": [
+    "river/tags"
+  ],
+  "modules-right": [
+    "tray",
+    "custom/pacman",
+    "backlight",
+    "pulseaudio",
+    "network",
+    "battery",
+    "clock",
+    "custom/power"
+  ],
+  "tray": {
+    "icon-size": 15,
+    "spacing": 10
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}",
+    "format-icons": [
+      "󰃞",
+      "󰃝",
+      "󰃟",
+      "󰃠"
+    ],
+    "tooltip-format": "Screen Brightness {percent}%"
+  },
+  "custom/pacman": {
+    "interval": 3600,
+    "return-type": "json",
+    "exec": "pacman-updates",
+    "exec-if": "exit 0",
+    "on-click": "$TERMINAL -e paru; pkill -SIGRTMIN+8 waybar",
+    "signal": 8
+  },
+  "clock": {
+    "tooltip-format": "{:%A, %B %d, %Y, %H:%M}",
+    "format": "{:%H:%M}"
+  },
+  "battery": {
+    "states": {
+      "warning": 20
+    },
+    "format": "{icon}",
+    "format-icons": [
+      "󰂎",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
+    "format-charging": "󰂄",
+    "format-warning": "󰂃",
+    "tooltip-format": "{capacity}% Capacity"
+  },
+  "network": {
+    "format-wifi": "󰤨",
+    "format-disconnected": "󰤭",
+    "tooltip-format": "Connected to {essid}",
+    "on-click": "${TERMINAL} -e nmtui"
+  },
+  "pulseaudio": {
+    // "scroll-step": 1, // %, can be a float
+    "format": "{icon}",
+    "format-muted": "",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "tooltip-format": "{volume}% Volume"
+  },
+  "custom/power": {
+    "format": "󰐥",
+    "on-click": "sleep 0.15 && powermenu",
+    "tooltip-format": "Power Menu"
+  }
+}

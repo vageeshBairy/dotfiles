@@ -277,7 +277,7 @@ return {
       },
 
       -- perl
-      perlls = {
+      perlnavigator = {
         cmd = { 'perl', '-MPerl::LanguageServer', '-e', 'Perl::LanguageServer::run', '--', '--port 13603', '--nostdio 0' },
         filetypes = { 'perl' },
         settings = {
@@ -288,12 +288,6 @@ return {
             perlInc = ' ',
           },
         },
-      },
-
-      --postgres
-      postgres_lsp = {
-        cmd = { 'postgres_lsp' },
-        filetypes = { 'sql' },
       },
 
       -- prisma

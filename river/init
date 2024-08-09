@@ -1,0 +1,127 @@
+#!/bin/sh
+
+riverctl border-width 1
+riverctl border-color-focused 0xBDAE93
+riverctl border-color-unfocused 0x665C54
+riverctl border-color-urgent 0xFABD2F
+riverctl default-layout rivertile
+riverctl default-attach-mode bottom
+rivertile -view-padding 1 -outer-padding 1 &
+
+riverctl hide-cursor timeout 5000
+riverctl hide-cursor when-typing enabled
+riverctl focus-follows-cursor normal
+riverctl set-repeat 30 500
+
+riverctl map normal Super Q close
+
+riverctl map normal Super F toggle-fullscreen
+riverctl map normal Super+Shift F toggle-float
+
+riverctl map normal Super H focus-view left
+riverctl map normal Super J focus-view down
+riverctl map normal Super K focus-view up
+riverctl map normal Super L focus-view right
+
+riverctl map normal Super+Shift H swap left
+riverctl map normal Super+Shift J swap down
+riverctl map normal Super+Shift K swap up
+riverctl map normal Super+Shift L swap right
+
+riverctl map normal Control+Shift H snap left
+riverctl map normal Control+Shift J snap down
+riverctl map normal Control+Shift K snap up
+riverctl map normal Control+Shift L snap right
+
+riverctl map -repeat normal Super+Alt H send-layout-cmd rivertile "main-ratio -0.01"
+riverctl map -repeat normal Super+Alt L send-layout-cmd rivertile "main-ratio +0.01"
+riverctl map normal Super+Alt J send-layout-cmd rivertile "main-count +1"
+riverctl map normal Super+Alt K send-layout-cmd rivertile "main-count -1"
+
+riverctl map normal Super Return spawn "$TERMINAL"
+
+riverctl map normal Super D spawn "tofi-drun --drun-launch=true"
+
+riverctl map normal Super M spawn "$TERMINAL ncmpcpp"
+riverctl map normal Super+Alt X spawn powermenu
+
+riverctl map normal Super W spawn "$BROWSER"
+
+riverctl map normal Super I spawn "$TERMINAL btop"
+
+riverctl map normal Super+Alt R spawn "${XDG_CONFIG_HOME}/river/init >/dev/null && notify-send 'River' 'Refreshed'"
+
+riverctl map normal Print spawn "grim $(xdg-user-dir PICTURES)/Screenshots/$(date +'Screenshot_%s.png')"
+
+riverctl map-pointer normal Shift BTN_LEFT move-view
+riverctl map-pointer normal Shift BTN_RIGHT resize-view
+
+riverctl input "pointer-1739-32183-SYNA7DB5:01_06CB:7DB7_Touchpad" tap enabled
+riverctl input "pointer-1739-32183-SYNA7DB5:01_06CB:7DB7_Touchpad" accel-profile adaptive
+riverctl input "pointer-1739-32183-SYNA7DB5:01_06CB:7DB7_Touchpad" natural-scroll enabled
+riverctl input "pointer-1739-32183-SYNA7DB5:01_06CB:7DB7_Touchpad" disable-while-typing enabled
+riverctl input "pointer-1739-32183-SYNA7DB5:01_06CB:7DB7_Touchpad" disable-while-trackpointing
+# riverctl input "keyboard-1226-172-Liteon_Dell_Wireless_Device" caps:swapescape
+
+for mode in normal locked; do
+	riverctl map -repeat $mode None XF86AudioRaiseVolume spawn "volume up"
+	riverctl map -repeat $mode None XF86AudioLowerVolume spawn "volume down"
+	riverctl map $mode None XF86AudioMute spawn "volume mute"
+
+	riverctl map $mode None F9 spawn "brightness up"
+	riverctl map $mode None F8 spawn "brightness down"
+
+	riverctl map $mode Super P spawn "mpc -q toggle"
+	riverctl map $mode Super+Alt P spawn "mpc -q stop && mpc -q clear"
+
+	riverctl map $mode Super Comma spawn "mpc -q prev"
+	riverctl map $mode Super Period spawn "mpc -q next"
+
+	riverctl map $mode Super+Shift Comma spawn "mpc -q seek -5%"
+	riverctl map $mode Super+Shift Period spawn "mpc -q seek +5%"
+
+	riverctl map $mode Super+Alt Comma spawn "mpc -q seek 0%"
+
+	riverctl map $mode None XF86AudioPrev spawn "mpc -q prev"
+	riverctl map $mode None XF86AudioNext spawn "mpc -q next"
+	riverctl map $mode None XF86AudioPlay spawn "mpc -q toggle"
+done
+
+scratchTag=$((1 << 20))
+riverctl map normal Super 0 toggle-focused-tags $scratchTag
+riverctl map normal Super+Shift 0 set-view-tags $scratchTag
+riverctl spawn-tagmask $((((1 << 32) - 1) ^ scratchTag))
+
+stickyTag=$((1 << 10))
+riverctl map normal Super S toggle-view-tags $stickyTag
+riverctl spawn-tagmask $((((1 << 32) - 1) ^ stickyTag))
+
+for i in $(seq 1 9); do
+	tags=$((1 << (i - 1)))
+	riverctl map normal Super "$i" set-focused-tags $((stickyTag + tags))
+	riverctl map normal Super+Shift "$i" set-view-tags $tags
+	riverctl map normal Super+Alt "$i" toggle-focused-tags $tags
+done
+
+# dbus-update-activation-environment SEATD_SOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river XDG_SESSION_DESKTOP=river
+executes="rivertile launchbar swww swayidle playerctld dunst mpd wlsunset fcitx5 wal wl-paste blueman-applet"
+for execute in $executes; do
+	pidof -q "$execute" && continue
+	case $execute in
+	"playerctld") "$execute" daemon & ;;
+	"fcitx5") "$execute" -D & ;;
+	"wlsunset") "$execute" -l 13.46842271602616 -L 74.74912210391028 & ;;
+	"wal") "#execute" -R & ;;
+	"swww") "$execute"-daemon --format xrgb ;;
+	"swayidle") "$execute" -w \
+		timeout 500 "lockscreen" \
+		timeout 600 "wlopm --off '*'" resume "wlopm --on '*'" \
+		before-sleep "lockscreen" & ;;
+	"wl-paste")
+		"$execute" --type text --watch cliphist store
+		"$execute" --type text --watch cliphist store
+		;;
+	*) "$execute" & ;;
+	esac
+done >/dev/null 2>&1

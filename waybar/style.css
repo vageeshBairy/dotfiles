@@ -61,6 +61,22 @@ button {
   transition: color 200ms ease-in-out;
 }
 
+#tags button {
+  padding: 0 5px;
+  color: @color2;
+  margin: 2px 0 2px 3px;
+  transition: color 200ms ease-in-out;
+}
+
+#tags button.selected {
+  color: @color9;
+  background: @color11;
+}
+
+#tags button.active {
+  color: @color9;
+}
+
 #workspaces button.selected {
   color: @color9;
 }
@@ -159,5 +175,4 @@ button {
 #scratchpad.empty {
   background-color: transparent;
 }
-
 /*vim : ft=scss*/
