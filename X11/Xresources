@@ -1,41 +1,27 @@
-! XTERM NAME
-! !------------------------------------------------
+*.vt100.faceName: JetBrainsMono NF:size=10.00:antialias=true
 
-XTerm.termName: xterm-256color
-XTerm.renderFont: true
-! XTERM Window size
+*.vt100.renderFont: true
 
-XTerm.vt100.geometry: 130x50 
+*.vt100.reverseVideo: true
 
-! XTERM COLORS & FONTS
-! !-----------------------------------------------
-XTerm.vt100.faceName: JetBrainsMonoNL Nerd Font
-XTerm.vt100.faceSize: 10,5
-! XTerm.vt100.font: 7x13
-XTerm.utf8: 1
-XTerm.vt100.locale: true
+*.vt100.scaleHeight: 1.25
 
-! XTERM COPY/PASTE
-! !----------------------------------------------
+*.vt100.rightScrollBar: false
 
-XTerm.selectToClipboard: true
-XTerm.vt100.TiteInhibit: True
-XTerm.highlightSelection: true
-XTerm.trimSelection: true
+*.vt100.ScrollBar: false
 
-! XTERM SCROLLBAR, CURSOR STYLE, BORDER, KEYBINDINGS
-! !------------------------------------------------
+*.vt100.scrollbar.width: 0
 
-XTerm.pointerColor: white
-XTerm.pointerColorBackground: black
-XTerm.cursorColor: yellow
-XTerm.cursorBlink: true
-XTerm.vt100.scrollBar: false
-XTerm.scrollTtyOutput: false
-XTerm.saveLines: 30000
-XTerm.vt100.translations: #override \n\
-Ctrl <Key>-: smaller-vt-font() \n\
-Ctrl <Key>+: larger-vt-font() \n\
-Ctrl <Key>0: set-vt-font(d) \n\
-Ctrl Alt <Key>c: copy-selection(CLIPBOARD) \n\
-Ctrl Alt <Key>v: insert-selection(CLIPBOARD)
+*.vt100.scrollTtyOutput: false
+
+*.vt100.autoWrap: false
+
+*.vt100.backarrowKey: false
+
+*.vt100.ttyModes: erase ^?
+
+*.vt100.locale: true
+
+*.vt100.utf8: true
+
+*.vt100.geometry: 140x30

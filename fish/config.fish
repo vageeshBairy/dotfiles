@@ -25,6 +25,7 @@ set -gx COLORTERM truecolor
 set -gx OPENER xdg-open
 set -gx WM Hyprland
 set -gx LAUNCHER tofi
+set -gx PAGER most
 
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx XDG_DATA_HOME $HOME/.local/share
@@ -49,6 +50,8 @@ set NPM_PACKAGES "$HOME/.local/bin/npm-packages"
 # Path
 set -gx PATH $PATH $NPM_PACKAGES/bin $FLUTTER_ROOT/bin $DART_LANGUAGE_SERVER
 
+set MANPATH /usr/local/man /usr/local/share/man /usr/share/man 
+set MANPATH $HOME/.sdkman/candidates/java/current/man $MANPATH
 set MANPATH $NPM_PACKAGES/share/man $MANPATH
 
 source (dirname (status --current-filename))/config-linux.fish
