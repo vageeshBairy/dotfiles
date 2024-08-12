@@ -1,6 +1,6 @@
 set fish_greeting ""
 
-set -gx TERM xterm-256color
+set -gx TERM screen-256color
 
 # aliases
 alias ls "ls -p -G"
@@ -15,7 +15,7 @@ alias y yazi
 command -qv nvim && alias vim nvim
 
 set -gx EDITOR nvim
-set -gx TERMINAL kitty
+set -gx TERMINAL wezterm
 set -gx BROWSER firefox
 set -gx VISUAL nvim
 set -gx GIT_EDITOR nvim

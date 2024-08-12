@@ -57,13 +57,9 @@ return {
 
       clues = {
         { mode = 'n', keys = '<Leader>f', desc = 'Find' },
-        { mode = 'n', keys = '<Leader>l', desc = 'LSP' },
-        { mode = 'n', keys = '<Leader>w', desc = 'Window' },
-        { mode = 'n', keys = '<Leader>s', desc = 'Session' },
-        { mode = 'n', keys = '<Leader>b', desc = 'Buffer' },
+        { mode = 'n', keys = '<Leader>w', desc = 'Workspace' },
         { mode = 'n', keys = '<Leader>g', desc = 'Git' },
         { mode = 'n', keys = '<Leader>u', desc = 'UI' },
-        { mode = 'n', keys = '<Leader>q', desc = 'NVim' },
         function()
           MiniClue.gen_clues.g()
         end,
@@ -88,13 +84,13 @@ return {
       },
     }
 
-    local mini_files = require 'mini.files'
-    mini_files.setup = {
-      windows = {
-        preview = true,
-      },
-      vim.keymap.set('n', '<leader>fe', mini_files.open, { desc = 'open mini files' }),
-    }
+    -- local mini_files = require 'mini.files'
+    -- mini_files.setup = {
+    --   windows = {
+    --     preview = true,
+    --   },
+    --   vim.keymap.set('n', '<leader>fe', mini_files.open, { desc = 'open mini files' }),
+    -- }
 
     local hipatterns = require 'mini.hipatterns'
     hipatterns.setup {

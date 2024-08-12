@@ -1,10 +1,10 @@
 local wezterm = require("wezterm")
 local mux = wezterm.mux
 local padding = {
-	left = "0px",
-	right = "0px",
-	top = "0px",
-	bottom = "0px",
+	left = "0",
+	right = "0",
+	top = "0",
+	bottom = "0",
 }
 
 -- Reload the configuration every ten minutes
@@ -20,15 +20,14 @@ end)
 return {
 	enable_wayland = false,
 	enable_tab_bar = false,
-	font_size = 11.0,
-	font = wezterm.font_with_fallback({ "Iosevka", { family = "Symbols Nerd Font", scale = 0.85 } }),
+	enable_scroll_bar = false,
+	font_size = 10.50,
+	font = wezterm.font_with_fallback({
+		{ family = "JetBrains Mono NL", scale = 1.00 },
+		{ family = "Symbols Nerd Font", scale = 0.94 },
+	}),
 	window_padding = padding,
-	line_height = 1,
-	window_background_image_hsb = {
-		brightness = 0.10,
-		hue = 0.8,
-		saturation = 0.8,
-	},
+	line_height = 1.00,
 	window_decorations = "NONE",
 	mouse_bindings = {
 		{
@@ -37,6 +36,7 @@ return {
 			action = wezterm.action.OpenLinkAtMouseCursor,
 		},
 	},
+	window_background_opacity = 1.00,
 	window_frame = {
 		border_left_width = "0.0cell",
 		border_right_width = "0.0cell",

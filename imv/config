@@ -1,3 +1,4 @@
 [binds]
 <Shift+H> = prev
 <Shift+L> = next
+<Shift+B> = exec setwallpaper "$imv_current_file" && sleep 2 && pkill imv

@@ -11,7 +11,8 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 vim.wo.signcolumn = 'yes'
 opt.cmdheight = 0
-opt.title = true
+opt.title = false
+opt.showtabline = 2
 opt.syntax = 'ON'
 opt.scrolloff = 10
 opt.colorcolumn = '80'
@@ -37,12 +38,12 @@ opt.incsearch = true
 -- behaviour
 opt.autochdir = false
 opt.backup = false
-opt.shell = tostring(os.getenv 'SHELL')
+opt.shell = os.getenv 'SHELL'
 opt.undofile = true
 opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
 opt.updatetime = 50
 opt.swapfile = false
-opt.path:append { '**' } -- Finding files - Search down into subfolders
+opt.path:append '**' -- Finding files - Search down into subfolders
 opt.mouse:append 'a'
 opt.clipboard = 'unnamedplus'
 opt.modifiable = true
@@ -54,6 +55,6 @@ opt.guicursor = 'n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50,a:blinkwait700-bli
 -- folds
 opt.foldmethod = 'indent'
 opt.foldignore = '#'
-opt.foldnestmax = 2
+opt.foldnestmax = 1
 -- opt.foldexpr = 'nvim_treesitter#foldexpr()'
 -- opt.foldlevel = 99

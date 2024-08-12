@@ -14,13 +14,18 @@ map('n', '<C-a>', 'gg<S-v>G', opts)
 -- delete a word backwards
 map('n', 'db', 'vbd')
 
+-- file explorer
+opts.desc = 'Open file explorer'
+map('n', '<leader>-', '<cmd>Oil --float<CR>', opts)
+
+-- no highlights
 opts.desc = 'clear search highlights'
 map('n', '<leader>nh', ':nohl<CR>', opts)
 
 -- bufer management keybindings
-map('n', '<tab>', ':bnext<Return>', opts)
-map('n', '<S-tab>', ':bprevious<Return>', opts)
-map('n', 'bc', ':bdelete<Return>', opts)
+map('n', '<tab>', ':bnext<CR>', opts)
+map('n', '<S-tab>', ':bprevious<CR>', opts)
+map('n', 'bc', ':bdelete<CR>', opts)
 
 -- split keybindings
 opts.desc = 'horizontal split'
@@ -64,13 +69,13 @@ opts.desc = 'open tmux sessionizer'
 map('n', '<C-f>', '<cmd>!tmux neww tmux_sessionizer<CR>', opts)
 
 opts.desc = 'format code'
-map('n', '<leader>f', vim.lsp.buf.format, opts)
+map('n', '<leader>fx', vim.lsp.buf.format, opts)
 
 opts.desc = 'search and replace'
-map('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], opts)
+map('n', '<leader>ss', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { noremap = true, silent = false })
 
 opts.desc = 'make shell script executable'
-map('n', '<leader>x', '<cmd>!chmod +x %<CR>', opts)
+map('n', '<leader>cx', '<cmd>!chmod +x %<CR>', { noremap = true, silent = false })
 
 -- indenting
 map('v', '<', '<gv', opts)
@@ -86,7 +91,7 @@ nmap('v', '<C-_>', 'gcc', { noremap = false, silent = false })
 
 -- misc
 nmap('n', 'QQ', ':q!<enter>', opts)
-nmap('n', 'WW', ':w!<enter>', opts)
+nmap('n', '<C-s>', ':w!<enter>', opts)
 nmap('n', 'E', '$', opts)
 nmap('n', 'B', '^', opts)
 
